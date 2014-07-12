@@ -1,0 +1,19 @@
+extends layout
+
+block js
+    link(type="text/javascript", href='/javascripts/login.js')
+block css
+    link(rel='stylesheet', href='/stylesheets/login.css')
+block content
+    #login
+        #login-scalebg
+        #login-glass
+        #login-content
+            #login-title Monika Stars Team
+            .login-input
+                input.login-username(tabindex="1", type="text")
+            .login-input
+                input.login-password(tabindex="2", type="password")
+            a(href="#",tabindex="3")
+            .login-check
+                span.login-remember

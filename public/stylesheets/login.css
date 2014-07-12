@@ -1,0 +1,143 @@
+/*
+ * Copyright (c) 2001-2014,FineReport Inc, All Rights Reserved.
+ */
+body{
+    height: 100%;
+    width: 100%;
+    color:#333;
+    font-size: 12px;
+    font-family: "microsoft yahei",simsun;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+#login, #login-glass, #login-scalebg{
+    position: absolute;
+    margin-top: -155px;
+    margin-left: -245px;
+    left: 50%;
+    top: 50%;
+    width: 490px;
+    height: 300px;
+}
+#login-content{
+    position: relative;
+    padding: 0 45px;
+}
+
+#login-title{
+    text-align: center;
+    height: 75px;
+    line-height: 75px;
+    font-size: 24px;
+}
+
+#login-glass{
+    filter:Alpha(opacity=60);
+    opacity: 0.6;
+    background: #ffffff;
+    border: solid 1px #e0e2e7;
+    border-radius : 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+
+#login-scalebg{
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+}
+
+div.login-input{
+    position: relative;
+    background: #ffffff;
+    border-radius : 2px;
+    margin: 5px 0;
+    padding: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border: solid 1px #a7bad2;
+}
+
+input, div.login-errmask{
+    margin: 0;
+    border: 0;
+    border-radius : 2px;
+    vertical-align:middle;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    font-size: 16px;
+    height:45px;
+}
+input{
+    background: #ffffff;
+    padding: 0 0 0 65px;
+    outline: none;
+    width: 333px;
+    line-height: 45px\9;
+}
+div.login-errmask{
+    filter: Alpha(opacity=80);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ffffff;
+    width: 398px;
+    line-height: 45px;
+    text-align: center;
+    background: #333;
+    z-index: 1;
+}
+div.login-input-focus{
+    border-color: #9b9b9b;
+}
+input:focus{
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) inset;
+}
+
+input.login-username{
+    background:url(../images/login_input.png) no-repeat 20px 10px;
+}
+input.login-password{
+    background:url(../images/login_input.png) no-repeat 20px -50px;
+}
+
+a{
+    display: block;
+    height: 45px;
+    margin-top: 20px;
+    background: #007aff;
+    color: #ffffff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    border-radius : 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    cursor: pointer !important;
+    text-decoration: none;
+    outline: none;
+}
+a:hover{
+    background: #0662c7;
+}
+div.login-check{
+    text-align: right;
+    height: 40px;
+    line-height: 40px;
+}
+span.login-remember{
+    cursor: pointer !important;
+    font-size: 16px;
+    padding-left: 25px;
+    background:url(../images/login_remember.gif) no-repeat 4px 2px;
+
+}
+span.login-remember-selected{
+    background:url(../images/login_remember.gif) no-repeat 4px -46px;
+}
