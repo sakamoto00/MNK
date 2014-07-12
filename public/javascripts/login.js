@@ -49,37 +49,32 @@ $(function() {
         var pw = $password.val();
         //用户名为空
         if(MNK.isEmpty(user)){
-            showErrorMsg($username,$.i18n.prop('Privilege-User_Can_Not_Be_Null'));
+            showErrorMsg($username,$.i18n.prop('Login-User_Can_Not_Be_Null'));
             return;
         }
         //密码为空
         if(MNK.isEmpty(pw)){
-            showErrorMsg($password,$.i18n.prop('Privilege-Password_Can_Not_Be_Null'));
+            showErrorMsg($password,$.i18n.prop('Login-Password_Can_Not_Be_Null'));
             return;
         }
         MNK.ajax({
-            url : MNK.servletURL + '?op=fs_load&cmd=login',
+            url : '/actions?cmd=login',
             data : MNK.cjkEncodeDO({
-                fsusername : encodeURIComponent(user),
-                fspassword : encodeURIComponent(pw),
-                fsremember : $keep.hasClass('selected')
+                username : encodeURIComponent(user),
+                password : encodeURIComponent(pw),
+                isKeep : $keep.hasClass('selected')
             }),
-            type : 'POST',
-            async : false,
-            error : function() {
-                alert("Error!");
-            },
             complete : function(res, status) {
-                if (res.responseText == "") {
-                    showErrorMsg($username,$.i18n.prop('Privilege-Authentication_failed'));
-                    return;
-                }
-                var signResult = MNK.jsonDecode(res.responseText);
-                if (signResult.fail) {
-                    //用户名和密码不匹配
-                    showErrorMsg($username,$.i18n.prop('Privilege-Name_Not_Match_Password'));
-                } else if (signResult.url) {
-                    window.location.href = signResult.url;
+                if(status == 'success'){
+                    var result = MNK.string2Json(res.responseText);
+                    if (result && result.success) {
+                        window.location.href = '/users';
+                    }else{
+                        //用户名和密码不匹配
+                        showErrorMsg($username,$.i18n.prop('Login-Name_Not_Match_Password'));
+                    }
+                }else{
+                    alert('Error!');
                 }
             }
         });

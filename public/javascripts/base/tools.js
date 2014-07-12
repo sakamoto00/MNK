@@ -54,7 +54,6 @@ if (window.MNK == null) {
                     var rightIdx = text.indexOf(']', i + 1);
                     if (rightIdx > i + 1) {
                         var subText = text.substring(i + 1, rightIdx);
-                        //james：主要是考虑[CDATA[]]这样的值的出现
                         if (subText.length > 0) {
                             ch = String.fromCharCode(eval("0x" + subText));
                         }
@@ -79,7 +78,6 @@ if (window.MNK == null) {
                     if (!(typeof v == "string")) {
                         v = MNK.jsonEncode(v);
                     }
-                    //wei:bug 43338，如果key是中文，cjkencode后o的长度就加了1，ie9以下版本死循环，所以新建对象result。
                     k = MNK.cjkEncode(k);
                     result[k] = MNK.cjkEncode(v);
                 });
@@ -172,7 +170,12 @@ if (window.MNK == null) {
                 return a.join("");
             }
         },
-        jsonDecode: function (text) {
+        /**
+         * 字符串转json对象
+         * @param text 字符串
+         * @returns {*} 返回json对象
+         */
+        string2Json: function (text) {
             try {
                 var jo = $.parseJSON(text);
                 if (jo == null) {
@@ -187,31 +190,7 @@ if (window.MNK == null) {
                     jo = [];
                 }
             }
-            if(!MNK._hasDateInJson(text)){
-                return jo;
-            }
-            return (function (o) {
-                if (typeof o === "string") {
-                    return o;
-                }
-                if (o && o.__time__ != null) {
-                    return new Date(o.__time__);
-                }
-                for (var a in o) {
-                    if (o[a] == o || typeof o[a] == 'object' || $.isFunction(o[a])) {
-                        break;
-                    }
-                    o[a] = arguments.callee(o[a]);
-                }
-
-                return o;
-            })(jo);
-        },
-        _hasDateInJson : function(json){
-            if(!json || typeof json !== "string"){
-                return false;
-            }
-            return json.indexOf("__time__")!=-1;
+            return jo;
         }
     });
 })();
