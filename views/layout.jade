@@ -8,9 +8,19 @@ html
         meta(name="Copyright", content="MNK")
         meta(name="description", content="Monika Stars Team")
         meta(name="keywords", content="Monika Stars,MNK")
-        link(type="text/javascript", href='/javascripts/base/jquery.js')
-        link(type="text/javascript", href='/javascripts/base/jquery-migrate.js')
+        script(type="text/javascript", src='/javascripts/lib/jquery.min.js')
+        script(type="text/javascript", src='/javascripts/lib/i18next.min.js')
+        script(type="text/javascript", src='/javascripts/base/tools.js')
         link(rel='stylesheet', href='/stylesheets/style.css')
+        script(type="text/javascript").
+            $(function() {
+                $.i18n.properties({
+                    name : 'string',
+                    path : '/resources/',
+                    mode : 'map',
+                    language : 'zh_CN'
+                });
+            })();
         block js
         block css
     body

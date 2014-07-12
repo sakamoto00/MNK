@@ -1,12 +1,11 @@
 extends layout
 
 block js
-    link(type="text/javascript", href='/javascripts/login.js')
+    script(type="text/javascript", src='/javascripts/login.js')
 block css
     link(rel='stylesheet', href='/stylesheets/login.css')
 block content
     #login
-        #login-scalebg
         #login-glass
         #login-content
             #login-title Monika Stars Team
@@ -16,4 +15,4 @@ block content
                 input.login-password(tabindex="2", type="password")
             a(href="#",tabindex="3")
             .login-check
-                span.login-remember
+                span.LOGIN-Keep_State

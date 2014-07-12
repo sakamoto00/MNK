@@ -12,10 +12,13 @@ body{
     left: 0;
     margin: 0;
     padding: 0;
+    background: #000000 url(../images/loginbg.jpg) no-repeat;
+    overflow: hidden;
+    background-size:cover;
 }
-#login, #login-glass, #login-scalebg{
+#login, #login-glass{
     position: absolute;
-    margin-top: -155px;
+    margin-top: -150px;
     margin-left: -245px;
     left: 50%;
     top: 50%;
@@ -32,6 +35,8 @@ body{
     height: 75px;
     line-height: 75px;
     font-size: 24px;
+    color: #B32770;
+    text-shadow: 0 0 10px #ff5d61;
 }
 
 #login-glass{
@@ -42,14 +47,6 @@ body{
     border-radius : 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
-}
-
-#login-scalebg{
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
 }
 
 div.login-input{
@@ -131,13 +128,13 @@ div.login-check{
     height: 40px;
     line-height: 40px;
 }
-span.login-remember{
+span.LOGIN-Keep_State{
     cursor: pointer !important;
     font-size: 16px;
     padding-left: 25px;
     background:url(../images/login_remember.gif) no-repeat 4px 2px;
 
 }
-span.login-remember-selected{
+span.LOGIN-Keep_State-selected{
     background:url(../images/login_remember.gif) no-repeat 4px -46px;
 }
