@@ -7,9 +7,9 @@ $(function() {
     //报错蒙板
     var $mask = $('<div class="login-errmask"/>');
     //用户名
-    var $username = $('input.login-username').attr("placeholder", $.i18n.prop('LOGIN-Username')).attr('title',$.i18n.prop('Username'));
+    var $username = $('input.login-username').attr("placeholder", $.i18n.prop('LOGIN-Username')).attr('title',$.i18n.prop('LOGIN-Username'));
     //密码
-    var $password = $('input.login-password').attr("placeholder", $.i18n.prop('LOGIN-Password')).attr('title',$.i18n.prop('Password'));
+    var $password = $('input.login-password').attr("placeholder", $.i18n.prop('LOGIN-Password')).attr('title',$.i18n.prop('LOGIN-Password'));
     $('input').focus(function(){
         $(this).parent().addClass('login-input-focus');
         $mask.remove();
@@ -68,13 +68,11 @@ $(function() {
                 if(status == 'success'){
                     var result = MNK.string2Json(res.responseText);
                     if (result && result.success) {
-                        window.location.href = '/users';
+                        window.location.href = '/home';
                     }else{
                         //用户名和密码不匹配
                         showErrorMsg($username,$.i18n.prop('Login-Name_Not_Match_Password'));
                     }
-                }else{
-                    alert('Error!');
                 }
             }
         });

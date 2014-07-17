@@ -28,6 +28,10 @@ router.get('/', function(req, res) {
                         var re = {success: false};
                         if(result){
                             re.success = true;
+                            req.session.user = {
+                                username: arg.username,
+                                password: arg.password
+                            };
                         }
                         res.write(JSON.stringify(re));
                         res.end();
