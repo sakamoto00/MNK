@@ -11,9 +11,8 @@ body{
     left: 0;
     margin: 0;
     padding: 0;
-    background: #000000 url(../images/loginbg.jpg) no-repeat;
+    background: url(../images/loginbg.jpg) repeat;
     overflow: hidden;
-    background-size:cover;
 }
 #login, #login-glass{
     position: absolute;
@@ -39,8 +38,8 @@ body{
 }
 
 #login-glass{
-    filter:Alpha(opacity=60);
-    opacity: 0.6;
+    filter:Alpha(opacity=40);
+    opacity: 0.4;
     background: #ffffff;
     border: solid 1px #e0e2e7;
     border-radius : 8px;
@@ -48,30 +47,23 @@ body{
     -moz-border-radius: 8px;
 }
 
-div.login-input{
-    position: relative;
-    background: #ffffff;
-    border-radius : 2px;
+div.input-group{
     margin: 5px 0;
-    padding: 0;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border: solid 1px #a7bad2;
 }
 
 input, div.login-errmask{
     margin: 0;
     border: 0;
-    border-radius : 2px;
-    vertical-align:middle;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
+    vertical-align: middle;
+    border-radius : 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
     font-size: 16px;
     height:45px;
 }
 input{
-    background: #ffffff;
-    padding: 0 0 0 65px;
+    background: none;
+    padding: 0;
     outline: none;
     width: 333px;
     line-height: 45px\9;
@@ -83,45 +75,20 @@ div.login-errmask{
     top: 0;
     left: 0;
     color: #ffffff;
-    width: 398px;
-    line-height: 45px;
+    width: 100%;
+    height:100%;
+    line-height: 46px;
     text-align: center;
     background: #333;
-    z-index: 1;
+    z-index: 10;
 }
 div.login-input-focus{
     border-color: #9b9b9b;
-}
-input:focus{
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) inset;
 }
 
-input.login-username{
-    background:url(../images/login_input.png) no-repeat 20px 10px;
-}
-input.login-password{
-    background:url(../images/login_input.png) no-repeat 20px -50px;
-}
+button {margin-top: 20px;}
 
-a{
-    display: block;
-    height: 45px;
-    margin-top: 20px;
-    background: #007aff;
-    color: #ffffff;
-    text-align: center;
-    line-height: 45px;
-    font-size: 20px;
-    border-radius : 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    cursor: pointer !important;
-    text-decoration: none;
-    outline: none;
-}
-a:hover{
-    background: #0662c7;
-}
 div.login-check{
     text-align: right;
     height: 40px;
