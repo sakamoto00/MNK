@@ -1,0 +1,23 @@
+extends layout
+
+block js
+    script(type="text/javascript", src='/javascripts/login.js')
+block css
+    link(rel='stylesheet', href='/stylesheets/login.css')
+block content
+    img(src="/images/loginbg.jpg")
+    #login
+        #login-glass
+        #login-content
+            #login-title Monika Stars Team
+            .input-group.input-group-lg.login-input-username
+                span.input-group-addon
+                    span.glyphicon.glyphicon-user
+                input.login-username.form-control(tabindex="1", type="text")
+            .input-group.input-group-lg.login-input-password
+                span.input-group-addon
+                    span.glyphicon.glyphicon-lock
+                input.login-password.form-control(tabindex="2", type="password")
+            button.btn.btn-primary.btn-lg.btn-block(type="button", tabindex="3")
+            .login-check
+                span.LOGIN-Keep_State
