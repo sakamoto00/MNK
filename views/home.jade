@@ -4,6 +4,13 @@ block js
 block css
     link(rel='stylesheet', href='/stylesheets/home.css')
 block content
-    #home-header
+    nav.navbar-default.navbar-fixed-top(role="navigation")
+        ul.nav.nav-tabs(role="tablist")
+            li.active(role="presentation")
+                a(href="#") Home
+            li(role="presentation")
+                a(href="#") Profile
+            li(role="presentation")
+                a(href="#") Messages
     #home-content
-    #home-footer
+    nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")

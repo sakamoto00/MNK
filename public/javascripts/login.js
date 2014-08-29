@@ -11,11 +11,8 @@ $(function() {
     //密码
     var $password = $('input.login-password').attr("placeholder", $.i18n.prop('LOGIN-Password')).attr('title',$.i18n.prop('LOGIN-Password'));
     $('input').focus(function(){
-        $(this).parent().addClass('login-input-focus');
-        $mask.remove();
-    }).blur(function(){
-            $(this).parent().removeClass('login-input-focus');
-        });
+        $mask.hide();
+    });
     //是否保持登录状态
     var $keep = $('span.LOGIN-Keep_State').text($.i18n.prop('LOGIN-Keep_State')).click(
         function(){
@@ -23,7 +20,7 @@ $(function() {
         }
     );
     //登录按钮
-    $('a').text($.i18n.prop('LOGIN-Login')).click(
+    $('button').text($.i18n.prop('LOGIN-Login')).click(
         function(){
             signIN();
         }
@@ -36,7 +33,7 @@ $(function() {
     });
 
     var showErrorMsg = function($pos, msg){
-        $mask.hide().insertAfter($pos).text(msg);
+        $mask.hide().insertBefore($pos).text(msg);
         $mask.click(function(){
             $(this).fadeOut();
             $pos.select();
@@ -44,7 +41,7 @@ $(function() {
     };
 
     var signIN = function(){
-        $mask.remove();
+        $mask.hide();
         var user = $username.val();
         var pw = $password.val();
         //用户名为空
